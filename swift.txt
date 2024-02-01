@@ -1,0 +1,72 @@
+print("Hello, World!")
+
+
+
+--------------------------------
+
+var variableMutable = 10
+let constanteImmutable = 5
+
+--------------------------------
+boucle if :
+
+let nombre = 42
+
+if nombre > 0 {
+    print("Le nombre est positif")
+} else if nombre < 0 {
+    print("Le nombre est négatif")
+} else {
+    print("Le nombre est zéro")
+}
+
+--------------------------------
+boucle for :
+
+for i in 1...5 {
+    print(i)
+}
+
+--------------------------------
+tableaux :
+
+var fruits = ["Pomme", "Banane", "Orange"]
+
+for fruit in fruits {
+    print(fruit)
+}
+
+--------------------------------
+fonctions :
+
+func additionner(_ a: Int, _ b: Int) -> Int {
+    return a + b
+}
+
+let resultat = additionner(3, 4)
+print(resultat)
+
+--------------------------------
+optionals :
+
+var nomOptionnel: String? = "John"
+
+if let nom = nomOptionnel {
+    print("Le nom est \(nom)")
+} else {
+    print("Le nom est vide")
+}
+
+--------------------------------
+structures :
+
+struct Point {
+    var x: Double
+    var y: Double
+}
+
+let point = Point(x: 3.0, y: 4.0)
+print("Coordonnées : (\(point.x), \(point.y))")
+
+
+

@@ -1,0 +1,61 @@
+import UIKit
+
+class MaListeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    // Données de la liste
+    let elements = ["Élément 1", "Élément 2", "Élément 3", "Élément 4", "Élément 5"]
+
+    // Déclaration de la UITableView
+    var tableView: UITableView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Initialiser la UITableView
+        tableView = UITableView(frame: view.bounds, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        // Enregistrer une cellule personnalisée si nécessaire
+        // tableView.register(MaCellulePersonnalisee.self, forCellReuseIdentifier: "cellulePersonnalisee")
+
+        // Ajouter la UITableView à la vue principale
+        view.addSubview(tableView)
+    }
+
+    // Nombre de sections dans la UITableView (généralement, une seule suffit)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    // Nombre de lignes dans la section
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return elements.count
+    }
+
+    // Configuration de chaque cellule de la UITableView
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellule") ?? UITableViewCell(style: .default, reuseIdentifier: "cellule")
+
+        // Configurer le texte de la cellule avec les données appropriées
+        cell.textLabel?.text = elements[indexPath.row]
+
+        return cell
+    }
+
+    // Action lorsqu'une cellule est sélectionnée
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Élément sélectionné : \(elements[indexPath.row])")
+    }
+}
+
+// Utilisation du ViewController
+let maListeVC = MaListeViewController()
+// Utilisation d'une UINavigationController pour afficher la liste (pourrait être différent selon votre application)
+let navigationController = UINavigationController(rootViewController: maListeVC)
+
+// Affichage de la fenêtre principale avec la UINavigationController
+if let window = UIApplication.shared.windows.first {
+    window.rootViewController = navigationController
+    window.makeKeyAndVisible()
+}

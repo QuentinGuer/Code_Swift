@@ -1,0 +1,15 @@
+import Foundation
+
+// Générer un nombre aléatoire entre 0 et 9
+let nombreAleatoire = arc4random_uniform(10)
+print("Nombre aléatoire : \(nombreAleatoire)")
+
+
+
+-----------------------------------
+
+import Foundation
+
+// Générer un nombre aléatoire décimal entre 0.0 et 1.0
+let nombreDecimalAleatoire = Double.random(in: 0.0..<1.0)
+print("Nombre décimal aléatoire : \(nombreDecimalAleatoire)")
